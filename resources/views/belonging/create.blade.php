@@ -52,7 +52,7 @@
                 @csrf
                 <label for="">住所を追加する</label>
                 <div class="address-submit__div">
-                    <input name="address_name" type="text" placeholder="例:クローゼット" value="{{ old("address_name") }}">
+                    <input name="address_name" type="text" placeholder="例：クローゼット" value="{{ old("address_name") }}">
                     <button>追加する</button>
                 </div>
                 @error("address_name")
@@ -64,7 +64,7 @@
                 @csrf
                 <label for="">タグを追加する</label>
                 <div class="tag-submit__div">
-                    <input name="tag_name" type="text" placeholder="例:筆記用具" value="{{ old("tag_name") }}">
+                    <input name="tag_name" type="text" placeholder="例：服" value="{{ old("tag_name") }}">
                     <button>追加する</button>
                 </div>
                 @error("tag_name")

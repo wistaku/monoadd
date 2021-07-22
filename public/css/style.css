@@ -179,6 +179,9 @@ h1,h2,h3,h4,h5,h6,p,a,label {
 .index__detail .empty__p {
     text-align: center;
 }
+.paginate__div {
+    margin-top: 10px;
+}
 
 
 /* create */

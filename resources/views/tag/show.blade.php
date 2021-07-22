@@ -35,6 +35,9 @@
                 <p class="empty__p">まだモノが登録されていません。</p>
             </div>
             @endforelse
+            <div class="paginate__div">
+                {{ $belongings->links() }}
+            </div>
         </div>
     </section>
 @endsection

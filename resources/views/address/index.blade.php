@@ -29,6 +29,9 @@
                 <p class="empty__p">まだ住所が登録されていません。</p>
             </div>
             @endforelse
+            <div class="paginate__div">
+                {{ $addresses->links() }}
+            </div>
         </div>
     </section>
 @endsection

@@ -17,7 +17,7 @@ class AddressController extends Controller
         //addressesテーブルからuser_idがマッチするモノを取得し、
         //address.indexのビューファイルに渡す
         $user_id = Auth::id();
-        $addresses = Address::where("user_id", $user_id)->latest()->get();
+        $addresses = Address::where("user_id", $user_id)->latest()->simplePaginate(5);
 
         return view("address.index")
             ->with(["addresses" => $addresses]);
@@ -29,7 +29,7 @@ class AddressController extends Controller
         $user_id = Auth::id();
         $address_id = $address->id;
 
-        $belongings = Belonging::where("user_id", $user_id)->where("address_id", $address_id)->latest()->get();
+        $belongings = Belonging::where("user_id", $user_id)->where("address_id", $address_id)->latest()->simplePaginate(5);
 
         return view("address.show")
             ->with([

@@ -15,7 +15,7 @@ class TagController extends Controller
         //tagsテーブルからuser_idがマッチするモノを取得し、
         //tag.indexのビューファイルに渡す
         $user_id = Auth::id();
-        $tags = Tag::where("user_id", $user_id)->latest()->get();
+        $tags = Tag::where("user_id", $user_id)->latest()->simplePaginate(5);
 
         return view("tag.index")
             ->with(["tags" => $tags]);
@@ -27,7 +27,7 @@ class TagController extends Controller
         $user_id = Auth::id();
         $tag_id = $tag->id;
 
-        $belongings = Belonging::where("user_id", $user_id)->where("tag_id", $tag_id)->latest()->get();
+        $belongings = Belonging::where("user_id", $user_id)->where("tag_id", $tag_id)->latest()->simplePaginate(5);
 
         return view("tag.show")
             ->with([

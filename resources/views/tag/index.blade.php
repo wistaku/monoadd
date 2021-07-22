@@ -29,6 +29,9 @@
                 <p class="empty__p">まだタグが登録されていません。</p>
             </div>
             @endforelse
+            <div class="paginate__div">
+                {{ $tags->links() }}
+            </div>
         </div>
     </section>
 @endsection

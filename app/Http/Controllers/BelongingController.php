@@ -16,7 +16,7 @@ class BelongingController extends Controller
         //belongingsテーブルからuser_idがマッチするモノを取得し、
         //belonging.indexのビューファイルに渡す
         $user_id = Auth::id();
-        $belongings = Belonging::where("user_id", $user_id)->latest()->get();
+        $belongings = Belonging::where("user_id", $user_id)->latest()->simplePaginate(5);
 
         return view("belonging.index")
             ->with(["belongings" => $belongings]);
@@ -48,7 +48,7 @@ class BelongingController extends Controller
         $tag = Tag::where("user_id", $user_id)->where("tag_name", $tag_name)->first();
         $tag_id = $tag->id;
 
-        // belongingカラムへの登録
+        // belongingsテーブルへの登録
         $belonging = new Belonging;
         $belonging->user_id = $user_id;
         $belonging->address_id = $address_id;
